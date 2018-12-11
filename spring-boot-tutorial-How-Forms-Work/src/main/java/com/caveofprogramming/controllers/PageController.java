@@ -2,6 +2,7 @@ package com.caveofprogramming.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,15 +28,15 @@ public class PageController {
 	
 	
 	@RequestMapping(value = "/addstatus", method = RequestMethod.GET)
-	ModelAndView addStatus(ModelAndView modelAndView) {
+	ModelAndView addStatus(ModelAndView modelAndView, @ModelAttribute("statusUpdate") StatusUpdate statusUpdate) {
 
 		modelAndView.setViewName("app.addStatus");
 
-		StatusUpdate statusUpdate = new StatusUpdate();
+		//StatusUpdate statusUpdate = new StatusUpdate();
 		
 		StatusUpdate latestStatusUpdate = statusUpdateService.getLatest();
 
-		modelAndView.getModel().put("statusUpdate", statusUpdate);
+		//modelAndView.getModel().put("statusUpdate", statusUpdate);
 		modelAndView.getModel().put("latestStatusUpdate", latestStatusUpdate);
 
 		return modelAndView;
@@ -44,7 +45,7 @@ public class PageController {
 	
 
 	@RequestMapping(value = "/addstatus", method = RequestMethod.POST)
-	ModelAndView addStatus(ModelAndView modelAndView, StatusUpdate statusUpdate) {
+	ModelAndView addStatus(ModelAndView modelAndView, @ModelAttribute("statusUpdate") StatusUpdate statusUpdate, String temp) {
 
 		modelAndView.setViewName("app.addStatus");
 		
