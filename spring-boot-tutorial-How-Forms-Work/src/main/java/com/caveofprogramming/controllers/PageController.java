@@ -40,6 +40,7 @@ public class PageController {
 		modelAndView.getModel().put("latestStatusUpdate", latestStatusUpdate);
 
 		return modelAndView;
+		
 	}
 	
 	
