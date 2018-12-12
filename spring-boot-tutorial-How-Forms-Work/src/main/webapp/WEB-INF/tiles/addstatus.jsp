@@ -7,9 +7,9 @@
 
 	<div class="col-md-8 col-md-offset-2">
 		
-		Request statusUpdate attribute: <%= request.getAttribute("statusUpdate") %><br/>
-		JSP object: <%= this %><br/>
-	    JSP class: <%= this.getClass() %><br/>
+<%-- 		Request statusUpdate attribute: <%= request.getAttribute("statusUpdate") %><br/> --%>
+<%-- 		JSP object: <%= this %><br/> --%>
+<%-- 	    JSP class: <%= this.getClass() %><br/> --%>
 	
 		<div class="panel panel-default">
 		
@@ -20,6 +20,9 @@
 			<div class="panel-body">
 				
 				<form:form modelAttribute="statusUpdate">
+				
+				<%-- <form:input type="hidden" path="id" /> --%>
+				
 					<div class="form-group">
 						<form:textarea path="text" name="text" rows="10" cols="50"></form:textarea>
 					</div>

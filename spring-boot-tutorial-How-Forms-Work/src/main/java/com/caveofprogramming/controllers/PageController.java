@@ -46,7 +46,7 @@ public class PageController {
 	
 
 	@RequestMapping(value = "/addstatus", method = RequestMethod.POST)
-	ModelAndView addStatus(ModelAndView modelAndView, @ModelAttribute("statusUpdate") StatusUpdate statusUpdate, String temp) {
+	ModelAndView addStatus(ModelAndView modelAndView, StatusUpdate statusUpdate, String temp) {
 
 		modelAndView.setViewName("app.addStatus");
 		
@@ -55,6 +55,7 @@ public class PageController {
 		StatusUpdate latestStatusUpdate = statusUpdateService.getLatest();
 		modelAndView.getModel().put("latestStatusUpdate", latestStatusUpdate);
 		
+		modelAndView.getModel().put("statusUpdate", new StatusUpdate());
 
 		return modelAndView;
 	}
